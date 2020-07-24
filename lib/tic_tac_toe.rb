@@ -62,11 +62,11 @@ end
 
 def turn
   puts "Please choose a number 1-9:"
-  user_input = gets.chomp
+  user_input = gets.strip
   index = input_to_index(user_input)
+  token = current_player
   if valid_move?(index)
-    player_token = current_player
-    move(index, player_token)
+    move(index, token)
     display_board
   else
     turn
@@ -74,19 +74,19 @@ def turn
 end
 
 def won?
-  WIN_COMBINATIONS.each {|win_combo|
-    index_0 = win_combo[0]
-    index_1 = win_combo[1]
-    index_2 = win_combo[2]
+  WIN_COMBINATIONS.each {|wc|
+    i0 = wc[0]
+    i1 = wc[1]
+    i2 = wc[2]
 
-    position_1 = @board[index_0]
-    position_2 = @board[index_1]
-    position_3 = @board[index_2]
+    p1 = @board[i0]
+    p2 = @board[i1]
+    p3 = @board[i2]
 
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return win_combo
-    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-      return win_combo
+    if p1 == "X" && p2 == "X" && p3 == "X"
+      return wc
+    elsif p1 == "O" && p2 == "O" && p3 == "O"
+      return wc
     end
   }
   return false
