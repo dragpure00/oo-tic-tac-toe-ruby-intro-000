@@ -73,7 +73,7 @@ def turn(board)
     puts "try it again"
     turn
   end
-  
+
 end
 
 def winner
