@@ -4,11 +4,13 @@ class TicTacToe
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
+    
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
+    
     [0, 4, 8],
-    [6, 4, 2]
+    [2, 4, 6]
   ]
 
 def initialize
@@ -27,7 +29,7 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def move(index, current_player = "X")
+def move(index, current_player)
   @board[index] = current_player
 end
 
@@ -50,7 +52,6 @@ def turn_count
 end
 
 def current_player
-  #if the turn count is an even number, that means O just went, so the next/current player is X
   num_turns = turn_count
   if num_turns % 2 == 0
     player = "X"
