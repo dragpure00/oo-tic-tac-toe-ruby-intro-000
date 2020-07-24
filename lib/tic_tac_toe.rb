@@ -142,7 +142,7 @@ end
 
 
 def play
-  until over? == true||won?==!false
+  until over? == true
     turn
   end
 
